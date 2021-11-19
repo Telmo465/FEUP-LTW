@@ -1,0 +1,20 @@
+div{
+    background-color: white;
+    border-style: solid;
+    border-color: grey;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+#menu{
+  width : 100px;
+  height : 100px;
+  float : right;
+}
+
+input[type="button"]{
+  background-color : white;
+  color: black;
+  border: none;
+}
