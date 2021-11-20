@@ -15,7 +15,14 @@
     <input type="button" id="jogarMenu" name="menu" value="Jogar"><br>
     <input type="button" id="classificacoesMenu" name="menu" value="Classificações"><br>
   </div>
-  <div id ="autenticacao"></div>
+  <div id ="autenticacao">
+    <form>
+      <label for="nomeUtilizador">Username: </label><br>
+      <input type="text" id="nomeUtilizador" nome="autenticacao" value=""><br>
+      <label for="senhaUtilizador">Senha: </label><br>
+      <input type="text" id="senhaUtilizador" nome="autenticacao" value="">
+    </form>
+  </div>
   <div id ="jogar"></div>
   <div id ="configuracao">
     <form>
@@ -52,7 +59,22 @@
       <label for="nivel3">Difícil</label><br>
     </form>
   </div>
-  <div id ="regras"></div>
+  <div id ="regras">
+    <h2>Regras</h2>
+    <p> Cada jogador controla as cavidades do seu lado</p>
+    <p> No início do jogo, os armazéns estão vazios</p>
+    <p> As restantes cavidades têm o mesmo número de sementes</p>
+    <p> Para semear, o jogador pega em todas as sementes de uma das suas cavidades e distribui-as pelas seguintes</p>
+    <p> Cada cavidade seguinte fica com mais uma semente</p>
+    <p> Semeadura é feita no sentido anti-horário</p>
+    <p> Se se passar pelo armazém do oponente, não se semeia, continua-se para a próxima cavidade</p>
+    <p> Se for o seu armazém, semear também</p>
+    <p> Se a última semente for semeada no seu armazém, pode voltar a jogar</p>
+    <p> Se a última semente for semeada numa sua cavidade vazia, pode recolher essa semente e todas as sementes da cavidade oposta do seu adversário</p>
+    <p> O jogo termina quando um dos jogadores ficar sem sementesnas suas cavidades</p>
+    <p> O outro jogador recolhe as sementes que sobraram do seu lado</p>
+    <p>Ganha quem tiver mais sementes no seu armazém</p>
+  </div>
   <div id ="classificacoes"></div>
 
 </body>
