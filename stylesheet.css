@@ -1,3 +1,7 @@
+body{
+  background-color: AliceBlue;
+}
+
 div{
     background-color: white;
     border-style: solid;
@@ -11,6 +15,96 @@ div{
   width : 100px;
   height : 100px;
   float : right;
+}
+
+#jogar{
+  width: 600px;
+  height: 300px;
+  float: right;
+  background-color: AliceBlue;
+  position:relative;
+}
+
+#armazem1{
+  width: 100px;
+  height: 295px;
+  float: left;
+  background-color: DarkGoldenRod;
+}
+
+#armazem2{
+  width: 95px;
+  height: 295px;
+  float: right;
+  background-color: DarkGoldenRod;
+}
+
+#bloco11{
+  width: 90px;
+  height: 140px;
+  position: absolute;
+  left: 107.5px;
+  background-color: DarkGoldenRod;
+}
+
+#bloco12{
+  width: 90px;
+  height:140px;
+  position: absolute;
+  left: 206.5px;
+  background-color: DarkGoldenRod;
+}
+
+#bloco13{
+  width: 90px;
+  height:140px;
+  position: absolute;
+  left: 302.5px;
+  background-color: DarkGoldenRod;
+}
+
+#bloco14{
+  width: 90px;
+  height:140px;
+  position: absolute;
+  left: 400px;
+  background-color: DarkGoldenRod;
+}
+
+#bloco21{
+  width: 90px;
+  height:140px;
+  position: absolute;
+  left: 110px;
+  top: 155px;
+  background-color: DarkGoldenRod;
+}
+
+#bloco22{
+  width: 90px;
+  height:140px;
+  position: absolute;
+  left: 205px;
+  top: 155px;
+  background-color: DarkGoldenRod;
+}
+
+#bloco23{
+  width: 90px;
+  height:140px;
+  position: absolute;
+  left: 305px;
+  top: 155px;
+  background-color: DarkGoldenRod;
+}
+
+#bloco24{
+  width: 90px;
+  height:140px;
+  position: absolute;
+  left: 400px;
+  top: 155px;
+  background-color: DarkGoldenRod;
 }
 
 input[type="button"]{
