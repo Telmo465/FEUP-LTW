@@ -1,120 +1,284 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
+h1{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 15px;
+    margin-right: 0px;
+    padding: 0;
+    font-family: 'Lobster';
+    color: black;
+    font-weight:bold;
+    font-style: italic;
+    font-size: 100px;
+    word-spacing: 30px;
+    text-align:left;
+}
+
+h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 10px;
+    padding: 0;
+    font-family: 'Libre Baskerville';
+    color: black;
+    font-weight:bold;
+    font-style: normal;
+    font-size: 30px;
+    word-spacing: 5px;
+    text-align:left;
+}
+
 body{
-  background-color: AliceBlue;
+    background-color: antiquewhite;
 }
 
 div{
     background-color: white;
     border-style: solid;
-    border-color: grey;
+    border-color: black;
     margin-bottom: 0px;
     padding-bottom: 10px;
     border-radius: 10px;
 }
 
+input{
+    margin-left: 25px;
+    font-family: 'Libre Baskerville';
+}
+
 #menu{
-  width : 400px;
-  height : 100px;
-  float : right;
+    position: fixed;
+    width: 80mm;
+    top: 10%;
+    right: 0.4%;
+    padding: 3mm;
+    border-radius: 25mm;
+    background: white;
+    opacity: 0.98;
+    box-shadow: 5px 5px 100px #888888;
+}
+.menu{
+    cursor:pointer;
+}
+input.menu {
+    visibility:hidden;
+}
+label.menu{
+    cursor: pointer;
+
 }
 
-#configuracao{
-  width: 400px;
-  float: right;
-  position:relative;
+input.menu + label {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 10px;
+    padding: 0;
+    font-family: 'Libre Baskerville';
+    color: black;
+    font-weight:bold;
+    font-style: normal;
+    font-size: 25px;
+    text-align:left;
 }
 
-#jogar{
-  width: 600px;
-  height: 300px;
-  float: left;
-  background-color: AliceBlue;
-  position:relative;
+input.menu:checked + label {
+    background: grey;
+    color: white;
+    font-style: italic;
+    font-size: 30px;
 }
 
-#armazem1{
-  width: 100px;
-  height: 295px;
-  float: left;
-  background-color: DarkGoldenRod;
+#diff{
+    border-style: none;
+  }
+
+p{
+  margin-left: 2%;
 }
 
-#armazem2{
-  width: 95px;
-  height: 295px;
-  float: right;
-  background-color: DarkGoldenRod;
+.authentqql{
+  position:fixed;
+  left: 115px;
 }
 
-#bloco11{
-  width: 90px;
-  height: 140px;
-  position: absolute;
-  left: 107.5px;
-  background-color: DarkGoldenRod;
+img.hole{
+    position: absolute;
+    height: 100px;
+    width:  100px;
+    top:    0px;
+}
+/*
+img.seedImage{
+    position: absolute;
+    height: 20px;
+    width:  10px;
+    top:    0px;
+} */
+
+table, th, td {
+    border: 2px solid black;
+    border-radius: 5px;
+    background: url("madeira.jpg");
+    position:  relative;
+  }
+
+div.seed{
+    height: 10px;
+    width:  10px;
+    position:  absolute;
+    z-index: 2;
+    top:  40px;
+    left:  40px;
+    opacity:  0.75;
+}
+#tabclassificL, #tabclassificW{
+    width:50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 10px;
+    border-collapse: collapse;
 }
 
-#bloco12{
-  width: 90px;
-  height:140px;
-  position: absolute;
-  left: 206.5px;
-  background-color: DarkGoldenRod;
+.primeiro{
+    width: 50%;
 }
 
-#bloco13{
-  width: 90px;
-  height:140px;
-  position: absolute;
-  left: 302.5px;
-  background-color: DarkGoldenRod;
+.segundo, .terceiro{
+    width: 25%;
 }
 
-#bloco14{
-  width: 90px;
-  height:140px;
-  position: absolute;
-  left: 400px;
-  background-color: DarkGoldenRod;
+.headline, #stateP1, #stateP2{
+    font-family: 'Libre Baskerville';
+    text-align: center;
+    color: white;
 }
 
-#bloco21{
-  width: 90px;
-  height:140px;
-  position: absolute;
-  left: 110px;
-  top: 155px;
-  background-color: DarkGoldenRod;
+ul, li, label, p, .messageBoard{
+    font-family: 'Libre Baskerville';
+  }
+
+#messageList{
+    height: 150px;
+    overflow: scroll;
 }
 
-#bloco22{
-  width: 90px;
-  height:140px;
-  position: absolute;
-  left: 205px;
-  top: 155px;
-  background-color: DarkGoldenRod;
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.mouseover{
+    filter: brightness(1.75);
+    cursor:pointer;
 }
 
-#bloco23{
-  width: 90px;
-  height:140px;
-  position: absolute;
-  left: 305px;
-  top: 155px;
-  background-color: DarkGoldenRod;
+button.playBtn{
+    width:  100%;
+    height: 100%;
+    font-family: 'Libre Baskerville';
+    font-style: oblique;
+    color: white;
+    background: url("madeira.jpg");
+    filter: brightness(1.75);
+    cursor:pointer;
+    height: 25px;
+    width: 100px;
 }
 
-#bloco24{
-  width: 90px;
-  height:140px;
-  position: absolute;
-  left: 400px;
-  top: 155px;
-  background-color: DarkGoldenRod;
+.seed{
+    border-style: none;
+    background-image: url("seed1.png");
+    background-size: cover;
+  }
+
+.boardCell{
+    position: relative;
+    float: left;
+    background: url("madeira.jpg");
+    border-style: double;
+    height: 100px;
+    width: 100px;
+    border: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 10px;
 }
 
-input[type="button"]{
-  background-color : white;
-  color: black;
-  border: none;
+.board4{
+    display: grid;
+    grid-template-rows: 4 [row1-start] 25 [row2-start] 100px [row3-start] 100px [row4-start] 25px ;
+    grid-template-columns: repeat(4, 100px [col-start]);
+    background: url("madeira.jpg");
+}
+
+.board5{
+    display: grid;
+    grid-template-rows: 4 [row1-start] 25 [row2-start] 100px [row3-start] 100px [row4-start] 25px ;
+    grid-template-columns: repeat(5, 100px [col-start]);
+    background: url("madeira.jpg");
+}
+
+.board8{
+    display: grid;
+    grid-template-rows: 4 [row1-start] 25 [row2-start] 100px [row3-start] 100px [row4-start] 25px ;
+    grid-template-columns: repeat(8, 100px [col-start]);
+    background: url("madeira.jpg");
+}
+
+.board11{
+    display: grid;
+    grid-template-rows: 4 [row1-start] 25 [row2-start] 100px [row3-start] 100px [row4-start] 25px ;
+    grid-template-columns: repeat(11, 100px [col-start]);
+    background: url("madeira.jpg");
+}
+
+.pottop{
+    position:  relative;
+    grid-column-start:2; /* Incrementar isto para preencher da esquerda para a direita*/
+    grid-column-end:span 1;
+    grid-row-start:1;
+    grid-row-end:span 1;
+    background: url("bowl.png");
+}
+
+.potbot{
+    position: relative;
+    grid-column-start:1; /* Incrementar isto para preencher da esquerda para a direita*/
+    grid-column-end:span 1;
+    grid-row-start:2;
+    grid-row-end:span 1;
+    background: url("bowl.png");
+}
+
+.playercontainer1{
+    position: relative;
+    grid-column-start:-1;
+    grid-column-end:span 1;
+    grid-row-start:1;
+    grid-row-end: span 2;
+    background: url("madeira.jpg");
+}
+
+.playercontainer2{
+    position: relative;
+    grid-column-start:1;
+    grid-column:1;
+    grid-row-start:1;
+    grid-row-end: span 2;
+    background: url("madeira.jpg");
+}
+
+.statepot{
+    position: relative;
+    grid-column-start:1; /* Incrementar isto para preencher da esquerda para a direita*/
+    grid-column-end:span 1;
+    grid-row-start:3;
+    grid-row-end:span 1;
+    background: url("madeira.jpg");
+}
+
+#giveup{
+    background-color: #DC143C;
+    font-weight: bold;
 }

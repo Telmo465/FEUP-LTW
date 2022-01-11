@@ -1,92 +1,152 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<!-- A declaração doctype declara a versão do HTML usada no documento -->
+
+<html lang="pt">
+
   <head>
-    <meta charset=UTF-8>
+    <link rel="stylesheet" href="stylesheet.css">
+    <meta charset="UTF-8">        <!-- para caracteres acentuados   -->
     <title>Mancala</title>  <!-- texto na decoração da janela -->
-    <link rel ="stylesheet" href="stylesheet.css" type="text/css">
-    <script src="mancala.js" type="module"></script>
+    <script src="mancala.js"></script>
   </head>
-<body>
 
-  <h1> Mancala </h1>
-  <div id="menu">
-    <input type="button" id="autenticacaoMenu" name="menu" value="Autenticação"><br>
-    <input type="button" id="configuracaoMenu" name="menu" value="Configuração"><br>
-    <input type="button" id="regrasMenu" name="menu" value="Regras"><br>
-    <input type="button" id="jogarMenu" name="menu" value="Jogar"><br>
-    <input type="button" id="classificacoesMenu" name="menu" value="Classificações"><br>
-  </div>
-  <div id ="autenticacao">
-    <form>
-      <label for="nomeUtilizador">Username: </label><br>
-      <input type="text" id="nomeUtilizador" nome="autenticacao" value=""><br>
-      <label for="senhaUtilizador">Senha: </label><br>
-      <input type="text" id="senhaUtilizador" nome="autenticacao" value="">
-    </form>
-  </div>
-  <div id ="jogar">
-    <div id = "armazem1"></div>
-    <div id = "armazem2"></div>
-    <div id = "bloco11"></div>
-    <div id = "bloco12"></div>
-    <div id = "bloco13"></div>
-    <div id = "bloco14"></div>
-    <div id = "bloco21"></div>
-    <div id = "bloco22"></div>
-    <div id = "bloco23"></div>
-    <div id = "bloco24"></div>
-  </div>
-  <div id ="configuracao">
-    <form>
-      <h2> Número de buracos </h2>
-      <input type="radio" id="2buracos" name="buracos" value="2">
-      <label for="2buracos">2</label><br>
-      <input type="radio" id="4buracos" name="buracos" value="4">
-      <label for="4buracos">4</label><br>
-      <input type="radio" id="6buracos" name="buracos" value="6">
-      <label for="6buracos">6</label><br>
-      <h2> Número inicial de sementes </h2>
-      <input type="radio" id="2sementes" name="sementes" value="2">
-      <label for="2sementes">2</label><br>
-      <input type="radio" id="4sementes" name="sementes" value="4">
-      <label for="4sementes">4</label><br>
-      <input type="radio" id="6sementes" name="sementes" value="6">
-      <label for="6sementes">6</label><br>
-      <h2> Contra quem quer jogar? </h2>
-      <input type="radio" id="utilizador" name="utilizador" value="user">
-      <label for="utilizador">outro utilizador</label><br>
-      <input type="radio" id="inteligencia" name="inteligencia" value="ia">
-      <label for="inteligencia">computador</label><br>
-      <h2> Primeiro a jogar </h2>
-      <input type="radio" id="eu" name="eu" value="eu">
-      <label for="eu">eu</label><br>
-      <input type="radio" id="outro" name="outro" value="outro">
-      <label for="inteligencia">outro</label><br>
-      <h2> Dificuldade </h2>
-      <input type="radio" id="nivel1" name="dificuldade" value="1">
-      <label for="nivel1">Fácil</label><br>
-      <input type="radio" id="nivel2" name="dificuldade" value="2">
-      <label for="nivel2">Médio</label><br>
-      <input type="radio" id="nivel3" name="dificuldade" value="3">
-      <label for="nivel3">Difícil</label><br>
-    </form>
-  </div>
-  <div id ="regras">
-    <h2>Regras</h2>
-    <p> Cada jogador controla as cavidades do seu lado</p>
-    <p> No início do jogo, os armazéns estão vazios</p>
-    <p> As restantes cavidades têm o mesmo número de sementes</p>
-    <p> Para semear, o jogador pega em todas as sementes de uma das suas cavidades e distribui-as pelas seguintes</p>
-    <p> Cada cavidade seguinte fica com mais uma semente</p>
-    <p> Semeadura é feita no sentido anti-horário</p>
-    <p> Se se passar pelo armazém do oponente, não se semeia, continua-se para a próxima cavidade</p>
-    <p> Se for o seu armazém, semear também</p>
-    <p> Se a última semente for semeada no seu armazém, pode voltar a jogar</p>
-    <p> Se a última semente for semeada numa sua cavidade vazia, pode recolher essa semente e todas as sementes da cavidade oposta do seu adversário</p>
-    <p> O jogo termina quando um dos jogadores ficar sem sementesnas suas cavidades</p>
-    <p> O outro jogador recolhe as sementes que sobraram do seu lado</p>
-    <p>Ganha quem tiver mais sementes no seu armazém</p>
-  </div>
-  <div id ="classificacoes"></div>
+  <body>
+    <h1> MANCALA </h1> <!-- Logótipo -->
 
-</body>
+    <div id="menu"> <!-- Menu -->
+      <input type=radio id="autenticMenu" name="menu" class="menu" checked onclick="allInvis('authent')">
+      <label for="autenticMenu" class="menu"> Autenticação </label><br>
+      <input type=radio id="configsMenu" name="menu" class="menu" onclick="allInvis('configs')">
+      <label for="configsMenu" class="menu"> Configuração </label><br>
+      <input type=radio id="regrasMenu" name="menu" class="menu" onclick="allInvis('regras')">
+      <label for="regrasMenu" class="menu"> Regras </label><br>
+      <input type=radio id="tableMenu" name="menu" class="menu" onclick="allInvis('base')">
+      <label for="tableMenu" class="menu"> Tabuleiro </label><br>
+      <input type=radio id="msgsMenu" name="menu" class="menu" onclick="allInvis('messageBoard')">
+      <label for="msgsMenu" class="menu"> Mensagens </label><br>
+      <input type=radio id="classifMenu" name="menu" class="menu" onclick="allInvis('classif')">
+      <label for="classifMenu" class="menu"> Classificações </label><br>
+    </div>
+
+    <div id="configs">
+      <form> <!-- Configurações -->
+        <h2> Número de buracos </h2>
+        <input type=radio id="holecount2" name="buracos" value="2" checked>
+        <label for="holecount2">2</label><br>
+        <input type=radio id="holecount3" name="buracos" value="3">
+        <label for="holecount3">3</label><br>
+        <input type=radio id="holecount6" name="buracos" value="6">
+        <label for="holecount6">6</label><br>
+        <input type=radio id="holecount9" name="buracos" value="9">
+        <label for="holecount9">9</label><br>
+
+        <br> <hr>
+
+        <h2> Número de sementes por buraco </h2>
+        <input type=radio id="seedcount3" name="sementes" value="3" checked>
+        <label for="seedcount3">3</label><br>
+        <input type=radio id="seedcount6" name="sementes" value="6">
+        <label for="seedcount6">6</label><br>
+        <input type=radio id="seedcount9" name="sementes" value="9">
+        <label for="seedcount9">9</label><br>
+
+        <br> <hr>
+
+        <h2> Número de jogadores </h2>
+        <input type=radio id="multiplayer" name="jogadores" value="m" onclick="diff.style.display = 'none';">
+        <label for="multiplayer">multiplayer</label><br>
+        <input type=radio id="singleplayer" name="jogadores" value="s" onclick="diff.style.display = 'block';" checked>
+        <label for="singleplayer" >singleplayer</label><br>
+
+
+        <br>
+
+        <div id="diff">
+          <h2> Dificuldade </h2>
+          <input type="range" id="difrange" name="dificuldade" min="1" max="3">
+          <label for="difrange">Dificuldade</label>
+
+          <br>
+
+          <h2> Quem começa </h2>
+          <input type=radio name="start" id="aistart" value="p2" checked>
+          <label for="aistart">Computador começa</label>
+          <input type=radio name="start" id="playerstart" value="p1">
+          <label for="difrange">Jogador começa</label>
+        </div>
+
+        <input type="button" value="Começar o Jogo" onclick="allInvis('base'); passForm(buracos.value, sementes.value, jogadores.value, dificuldade.value, start.value); tableMenu.checked='checked';">
+      </form>
+    </div>
+
+
+      <div class="Authent" id="authent">
+        <h2> Autenticação </h2>
+        <form> <!-- Autenticação -->
+              <p>Utilizador: <input class="authentqql" type=text name= "utilizador"></p>
+              <p>Senha: <input class="authentqql" type=password name= "senha"></p>
+              <input type="button" value="Login" onclick="registerPlayer(utilizador.value, senha.value);">
+        </form>
+      </div>
+
+      <div id="base">
+        <div id="mancalaBoard"></div>
+        <input type="button" id="giveup" value="Desistir" onclick="quit()">
+      </div>
+
+      <div id="messageBoard">
+        <ul id="messageList"></ul>
+      </div>
+
+      <div id="regras">
+        <h2> Forma de jogar </h2>
+
+        <ul>
+          <li>Jogadores semeiam as suas sementes alternadamente
+          <li>Na sua vez semeiam a partir de uma das suas cavidades
+          <li>Para semear deve-se clicar no butão play por debaixo da cavidade
+          <li>Consoante a situação da última semente semeada, podem
+            <ul>
+              <li>voltar a jogar
+              <li>ficar com algumas sementes do adversário
+            </ul>
+          <li>Termina quando um dos jogadores fica sem sementes
+          <li>Para mais informações consultar os seguintes links:
+            <ul>
+              <li><a href="https://pt.wikipedia.org/wiki/Mancala">Página Wikipedia</a>
+              <li><a href="https://www.youtube.com/watch?v=-A-djjimCcM">Vídeo de Youtube</a>
+            </ul>
+        </ul>
+        <img src=board.jpg alt="Tabuleiro de mancala">
+
+      </div>
+
+      <div id="classif">
+        <div id="classifL">
+        <h2> Tabela de classificação local</h2>
+        <table id="tabclassificL">
+          <tr>
+            <th class="headline primeiro"> Jogador </th>
+            <th class="headline segundo"> Vitórias </th>
+            <th class="headline terceiro"> Jogos </th>
+          </tr>
+          <tr>
+            <td id="nome" class="headline"> Jogador Local </td>
+            <td id="wins" class="headline"> 0 </td>
+            <td id="plays" class="headline"> 0 </td>
+          </tr>
+        </table>
+        </div>
+        <div id="classifW">
+          <h2> Tabela de classificação Web</h2>
+          <table id="tabclassificW">
+            <tr>
+              <th class="headline primeiro"> Jogador </th>
+              <th class="headline segundo"> Vitórias </th>
+              <th class="headline terceiro"> Jogos </th>
+            </tr>
+          </table>
+        </div>
+      </div>
+  </body>
+</html>
