@@ -85,13 +85,13 @@
         <form> <!-- Autenticação -->
               <p>Utilizador: <input class="authentqql" type=text name= "utilizador"></p>
               <p>Senha: <input class="authentqql" type=password name= "senha"></p>
-              <input type="button" value="Login" onclick="registerPlayer(utilizador.value, senha.value);">
+              <input type="button" value="Login" onclick="registarPlayer(utilizador.value, senha.value);">
         </form>
       </div>
 
       <div id="base">
         <div id="mancalaBoard"></div>
-        <input type="button" id="giveup" value="Desistir" onclick="quit()">
+        <input type="button" id="giveup" value="Desistir" onclick="desistir()">
       </div>
 
       <div id="messageBoard">
@@ -99,19 +99,17 @@
       </div>
 
       <div id="regras">
-        <h2> Forma de jogar </h2>
+        <h2> Regras do Jogo </h2>
 
         <ul>
-          <li>Jogadores semeiam as suas sementes alternadamente
-          <li>Na sua vez semeiam a partir de uma das suas cavidades
-          <li>Para semear deve-se clicar no butão play por debaixo da cavidade
-          <li>Consoante a situação da última semente semeada, podem
-            <ul>
-              <li>voltar a jogar
-              <li>ficar com algumas sementes do adversário
-            </ul>
-          <li>Termina quando um dos jogadores fica sem sementes
-          <li>Para mais informações consultar os seguintes links:
+          <li>Jogadores semeiam as suas sementes alternadamente.
+          <li>Na sua vez semeiam a partir de uma das suas cavidades.
+          <li>Para semear deve-se clicar no butão play por debaixo da cavidade.
+          <li>Caso a última semente seja plantada no armazém do próprio jogador, esse pode voltar a jogar.
+          <li>Caso a última seja plantada numa cavidade vazia do próprio jogador, esse recolhe as sementes da cavidade correspondente do adversário.
+          <li>Caso nenhuma destas situações se verifique, o jogo continua normalmente.
+          <li>O jogo termina quando um dos jogadores ficar sem sementes.
+          <li>Para mais informações, pode consultar os seguintes links:
             <ul>
               <li><a href="https://pt.wikipedia.org/wiki/Mancala">Página Wikipedia</a>
               <li><a href="https://www.youtube.com/watch?v=-A-djjimCcM">Vídeo de Youtube</a>

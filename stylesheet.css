@@ -31,7 +31,7 @@ h2{
 }
 
 body{
-    background-color: antiquewhite;
+    background-color: AliceBlue;
 }
 
 div{
@@ -54,7 +54,7 @@ input{
     top: 10%;
     right: 0.4%;
     padding: 3mm;
-    border-radius: 25mm;
+    border-radius: 10mm;
     background: white;
     opacity: 0.98;
     box-shadow: 5px 5px 100px #888888;
@@ -178,9 +178,9 @@ button.playBtn{
     height: 100%;
     font-family: 'Libre Baskerville';
     font-style: oblique;
-    color: white;
-    background: url("madeira.jpg");
-    filter: brightness(1.75);
+    color: black;
+    background: AliceBlue;
+    /*filter: brightness(1.75);*/
     cursor:pointer;
     height: 25px;
     width: 100px;
@@ -279,6 +279,7 @@ button.playBtn{
 }
 
 #giveup{
-    background-color: #DC143C;
+    background-color: DarkRed;
+    color: white;
     font-weight: bold;
 }

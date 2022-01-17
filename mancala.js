@@ -150,7 +150,7 @@ class Mancala{
 		tabuleiro.appendChild(filler2);
 	}
 
-	insertSeeds(seedcount){
+	inserirSeeds(seedcount){
 		this.seedTotal = seedcount;
 		this.seedArray = new Array(this.containers * seedcount);
 		for (let i = 0; i < this.containers*2; i++) {
@@ -178,50 +178,50 @@ var gPassword; //guarda a password
 var gameHash; //guarda o hash do jogo atual
 var wins; //guarda o número de vitórias do utilizador
 var plays; //guarda o número de jogos do utilizador
-var group = 29; //número do grupo
+var group = 98; //número do grupo
 var eventSource; //fonte do evento
 var seedPos; //posição no array de sementes (para traduzir da internet)
 
 //flags
-var gameEnd; //guarda se o jogo atual já acabou
-var isLogged; //guarda se o utilizador fez login
+var fimJogo; //guarda se o jogo atual já acabou
+var logged; //guarda se o utilizador fez login
 var validMove; //variável que guarda se a jogada mais recente foi válida
 
 //secção de começar jogos
 window.onload = function(){
 	table = new Mancala("base", 2, 's', '1', 'Player');
 	table.criarTabuleiro();
-	table.insertSeeds(2);
+	table.inserirSeeds(2);
 	allInvis("authent");
 	if (!localStorage.getItem("wins")) {wins = 0;}
 	else {wins = localStorage.getItem("wins");}
 
 	if (!localStorage.getItem("plays")) {plays = 0;}
 	else {plays = localStorage.getItem("plays");}
-	gameEnd = false;
-	isLogged = false;
+	fimJogo = false;
+	logged = false;
 	validMove = false;
 }
 
-function createGame(seeds, conts, gamemode, difficulty, starting){
+function criarJogo(seeds, conts, gamemode, difficulty, starting){
 	table = new Mancala("base", conts, gamemode, difficulty, starting);
 	allInvis("base");
 	table.criarTabuleiro();
-	table.insertSeeds(seeds);
-	gameEnd = false;
+	table.inserirSeeds(seeds);
+	fimJogo = false;
 	if (gamemode === 'm') {
-		if (isLogged == true) {
-			let userdata = {"group": 29, "nick": gNickname, "password": gPassword, "size": conts, "initial": seeds};
+		if (logged == true) {
+			let userdata = {"group": 98, "nick": gNickname, "password": gPassword, "size": conts, "initial": seeds};
 			sendRequest(userdata, "join");
 		}
 		else {
-			alert("Por favor faça login antes de tentar entrar em multijogador");
+			alert("Por favor faça login antes de tentar jogar em multijogador");
 		}
 	}
 }
 
 function passForm(containers, seeds, gametype, diff, start){
-	createGame(seeds, containers, gametype, diff, start);
+	criarJogo(seeds, containers, gametype, diff, start);
 	mensagem = containers + " contentores, " + seeds + " sementes, " + " tipo de jogo: " + gametype;
 	if (gametype == 's') {
 		mensagem = mensagem + " com dificuldade " + diff + " e com " + start + " a começar!";
@@ -229,16 +229,15 @@ function passForm(containers, seeds, gametype, diff, start){
 	sendMessage(mensagem);
 }
 
-//secção de funcionalidade do jogo
 function play(pos){
-	if (gameEnd) {
+	if (fimJogo) {
 		alert("O jogo acabou. Por favor comece um novo jogo.");
 	}
 	else if (table.gamemode == 's' && (table.current === 'p2' && pos >= table.containers) || (table.current === 'p1' && pos < table.containers)) {
-		alert("Posição Inválida: " + parseInt(pos + 1) + " não é jogável pelo jogador " + table.current + ".");
+		alert("Posição " + parseInt(pos + 1) + " não é jogável pelo jogador " + table.current + ".");
 	}
 	else if(table.content[pos] == 0){
-		alert(table.current + ": por favor escolha uma posição com sementes");
+		alert(table.current + ", por favor escolha uma posição com sementes");
 	}
 	else if(table.gamemode == 's'){
 		sendMessage(table.current + " jogou na posição " + (pos % table.containers + 1));
@@ -285,7 +284,8 @@ function play(pos){
 		let state2 = document.getElementById('stateP2');
 		state2.innerHTML = table.p2Cont.toString();
 
-		if (table.current === "p1") { //turno de p1
+		//turno de p1
+		if (table.current === "p1") {
 			//verificar se o ultimo lugar jogado foi num dos contentores de p1
 			if(upperSum() === 0 || lowerSum() === 0){
 					gameOver();
@@ -355,7 +355,8 @@ function play(pos){
 				});
 			}
 		}
-		else{ //turno de p2
+		//turno de p2
+		else{
 			if(upperSum() === 0 || lowerSum() === 0){
 					gameOver();
 					return;
@@ -411,7 +412,7 @@ function play(pos){
 			}
 		}
 	}
-	else { //novo na parte 2
+	else {
 		let userdata = {'nick': gNickname, 'password': gPassword, "game": gameHash, "move": parseInt(pos % table.containers)};
 		sendRequest(userdata, "notify");
 		if(validMove == true)
@@ -422,7 +423,7 @@ function play(pos){
 	}
 }
 
-//secção de funcionalidade do jogo (singleplayer)
+//secção de singleplayer
 function playTopRow(startNode, startPos){
 	console.log("starting transfer from hole in position " + startNode + ", which has "+table.content[startNode]+" seeds");
 	let seedsUsed = 0;
@@ -511,7 +512,7 @@ function collectLeftovers(){
 }
 
 function gameOver(){
-	gameEnd = true;
+	fimJogo = true;
 	collectLeftovers();
 	alert("O jogo acabou!");
 
@@ -527,7 +528,7 @@ function gameOver(){
 	else if(table.p1Cont > table.p2Cont){
 		wins = parseInt(wins + 1);
 		console.log("wins");
-		if(isLogged===true){sendMessage(gNickname + " ganhou!");}
+		if(logged===true){sendMessage(gNickname + " ganhou!");}
 		else {sendMessage("O jogador ganhou!");}
 
 
@@ -547,9 +548,9 @@ function updClassif(){
 	wstaken.innerHTML = wins.toString();
 }
 
-function quit(){
-	gameEnd = true;
-	alert("Desistiu do jogo! Por favor comece um novo!");
+function desistir(){
+	fimJogo = true;
+	alert("Desistiu do jogo! Por favor, comece um novo!");
 	sendMessage("O jogador desistiu!");
 
 	//novo na parte 2
@@ -589,31 +590,36 @@ function sendMessage(msg){
 function allInvis(vis){
 	const elem = document.getElementById("configs");
 	elem.style.display = 'none';
+
 	const elem2 = document.getElementById("authent");
 	elem2.style.display = 'none';
+
 	const elem3 = document.getElementById("base");
 	elem3.style.display = 'none';
+
 	const elem4 = document.getElementById("messageBoard");
 	if(vis != "base") elem4.style.display = 'none';
 	else {elem4.style.display = 'block'; elem4.style.height = "150px";}
+
 	const elem5 = document.getElementById("regras");
 	elem5.style.display = 'none';
+
 	const elem7 = document.getElementById("classif");
 	elem7.style.display = 'none';
 
 	const elemF = document.getElementById(vis);
 	elemF.style.display = 'block';
+
 	if(vis == "messageBoard") elemF.style.height = "auto";
 	if(vis == "classif") sendRequest({}, "ranking");
 }
 
 //PARTE 2
-function registerPlayer(user, password){
+function registarPlayer(user, password){
 	gNickname = user;
 	gPassword = password;
-	isLogged = true;
+	logged = true;
 
-	//também trata de fazer login com o server
 	let userdata = {'nick': gNickname, 'password': gPassword};
 	sendRequest(userdata, "register");
 }
@@ -661,7 +667,7 @@ function preRegister (data){
     }
     if (data.error=="User registered with a different password"){
         alert("Login falhado por erro na password");
-        isLogged = false;
+        logged = false;
     }
 }
 
@@ -794,7 +800,7 @@ function translateBoard(sides, key){
 }
 
 function openServer(){
-	if(!isLogged){alert("Por favor faça login primeiro!"); return;}
+	if(!logged){alert("Por favor faça login primeiro!"); return;}
 	let server = "twserver.alunos.dcc.fc.up.pt"
 	eventSource = new EventSource('http://'+server+':'+'8008'+'/update?nick='+encodeURIComponent(gNickname)+'&game='+encodeURIComponent(gameHash));
 
@@ -812,7 +818,7 @@ function openServer(){
 
 		//tratar de se o jogo acabou
 		if (data.hasOwnProperty("winner")) {
-			gameEnd = true;
+			fimJogo = true;
 			plays = parseInt(plays+1);
 			if(data.winner === null){
 				alert("Sem vencedor!");
