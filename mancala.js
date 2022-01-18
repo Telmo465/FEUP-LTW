@@ -51,6 +51,7 @@ class Mancala{
 						}
 					}
 				});
+		console.log(wins)
 	}
 
 	criarTabuleiro(){
@@ -193,10 +194,12 @@ window.onload = function(){
 	table.criarTabuleiro();
 	table.inserirSeeds(2);
 	allInvis("authent");
-	if (!localStorage.getItem("wins")) {wins = 0;}
+	if (localStorage.getItem("wins")) {wins = 0;}
 	else {wins = localStorage.getItem("wins");}
+	console.log("aqui");
+	console.log(wins);
 
-	if (!localStorage.getItem("plays")) {plays = 0;}
+	if (localStorage.getItem("plays")) {plays = 0;}
 	else {plays = localStorage.getItem("plays");}
 	fimJogo = false;
 	logged = false;
@@ -825,7 +828,7 @@ function openServer(){
 			}
 			else {
 				if(data.winner === gNickname){
-					wins = parseInt(wins+1);
+					wins = parseInt(wins);
 				}
 				alert(data.winner + " venceu!");
 			}
