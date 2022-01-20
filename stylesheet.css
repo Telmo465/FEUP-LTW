@@ -10,7 +10,7 @@ h1{
     color: black;
     font-weight:bold;
     font-style: italic;
-    font-size: 100px;
+    font-size: 75px;
     word-spacing: 30px;
     text-align:left;
 }
@@ -19,25 +19,25 @@ h2{
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 15px;
-    margin-right: 10px;
+    margin-right: 5px;
     padding: 0;
     font-family: 'Libre Baskerville';
     color: black;
     font-weight:bold;
     font-style: normal;
-    font-size: 30px;
+    font-size: 15px;
     word-spacing: 5px;
     text-align:left;
 }
 
 body{
     background-color: AliceBlue;
+    width: 75%;
+    height: 50%;
 }
 
 div{
     background-color: white;
-    border-style: solid;
-    border-color: black;
     margin-bottom: 0px;
     padding-bottom: 10px;
     border-radius: 10px;
@@ -48,9 +48,28 @@ input{
     font-family: 'Libre Baskerville';
 }
 
+
+#regras{
+    width: 80%;
+    border-style: solid;
+    border-color: black;
+}
+
+#mancalaboard{
+    width: 50%;
+    
+}
+
+#configs{
+    border-style: solid;
+    border-color: black;
+}
+
 #menu{
+    border-style: solid;
+    border-color: black;
     position: fixed;
-    width: 80mm;
+    width: 60mm;
     top: 10%;
     right: 0.4%;
     padding: 3mm;
@@ -80,7 +99,7 @@ input.menu + label {
     color: black;
     font-weight:bold;
     font-style: normal;
-    font-size: 25px;
+    font-size: 20px;
     text-align:left;
 }
 
@@ -88,12 +107,17 @@ input.menu:checked + label {
     background: grey;
     color: white;
     font-style: italic;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 #diff{
     border-style: none;
   }
+
+#authent{
+    border-style: solid;
+    border-color: black;
+}
 
 p{
   margin-left: 2%;
@@ -123,11 +147,12 @@ table, th, td {
     border-radius: 5px;
     background: url("madeira.jpg");
     position:  relative;
+    width: 75%;
   }
 
 div.seed{
     height: 10px;
-    width:  10px;
+    width:  10%;
     position:  absolute;
     z-index: 2;
     top:  40px;
@@ -162,6 +187,9 @@ ul, li, label, p, .messageBoard{
   }
 
 #messageList{
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
     height: 150px;
     overflow: scroll;
 }
@@ -187,18 +215,22 @@ button.playBtn{
 }
 
 .seed{
+    border-style: solid;
+    border-color: black;
     border-style: none;
     background-image: url("seed1.png");
     background-size: cover;
   }
 
 .boardCell{
+    border-style: solid;
+    border-color: black;
     position: relative;
     float: left;
     background: url("madeira.jpg");
     border-style: double;
-    height: 100px;
-    width: 100px;
+    height: 25px;
+    width: 12.5px;
     border: solid;
     border-color: black;
     border-width: 3px;
@@ -206,13 +238,23 @@ button.playBtn{
 }
 
 .board4{
+    width: fit-content;
     display: grid;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 10px;
     grid-template-rows: 4 [row1-start] 25 [row2-start] 100px [row3-start] 100px [row4-start] 25px ;
     grid-template-columns: repeat(4, 100px [col-start]);
     background: url("madeira.jpg");
 }
 
 .board5{
+    width: fit-content;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 10px;
     display: grid;
     grid-template-rows: 4 [row1-start] 25 [row2-start] 100px [row3-start] 100px [row4-start] 25px ;
     grid-template-columns: repeat(5, 100px [col-start]);
@@ -220,6 +262,11 @@ button.playBtn{
 }
 
 .board8{
+    width: fit-content;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 10px;
     display: grid;
     grid-template-rows: 4 [row1-start] 25 [row2-start] 100px [row3-start] 100px [row4-start] 25px ;
     grid-template-columns: repeat(8, 100px [col-start]);
@@ -227,6 +274,11 @@ button.playBtn{
 }
 
 .board11{
+    width: fit-content;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 10px;
     display: grid;
     grid-template-rows: 4 [row1-start] 25 [row2-start] 100px [row3-start] 100px [row4-start] 25px ;
     grid-template-columns: repeat(11, 100px [col-start]);
@@ -234,24 +286,30 @@ button.playBtn{
 }
 
 .pottop{
+    border-style: solid;
+    border-color: black;
     position:  relative;
     grid-column-start:2; /* Incrementar isto para preencher da esquerda para a direita*/
     grid-column-end:span 1;
     grid-row-start:1;
     grid-row-end:span 1;
-    background: url("bowl.png");
+    background: url("madeira.jpg");
 }
 
 .potbot{
+    border-style: solid;
+    border-color: black;
     position: relative;
     grid-column-start:1; /* Incrementar isto para preencher da esquerda para a direita*/
     grid-column-end:span 1;
     grid-row-start:2;
     grid-row-end:span 1;
-    background: url("bowl.png");
+    background: url("madeira.jpg");
 }
 
 .playercontainer1{
+    border-style: solid;
+    border-color: black;
     position: relative;
     grid-column-start:-1;
     grid-column-end:span 1;
@@ -261,6 +319,8 @@ button.playBtn{
 }
 
 .playercontainer2{
+    border-style: solid;
+    border-color: black;
     position: relative;
     grid-column-start:1;
     grid-column:1;
@@ -270,6 +330,8 @@ button.playBtn{
 }
 
 .statepot{
+    border-style: solid;
+    border-color: black;
     position: relative;
     grid-column-start:1; /* Incrementar isto para preencher da esquerda para a direita*/
     grid-column-end:span 1;
