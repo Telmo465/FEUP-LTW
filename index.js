@@ -4,10 +4,22 @@ require('./register.js');
 var fs = require('fs');
 var path = require('path');
 const url = require('url');
+const hostname = 'twserver.alunos.dcc.fc.up.pt';
 const port = 9098;
 
-const hostname = 'twserver.alunos.dcc.fc.up.pt';
+const options_server = {
+  hostname: 'twserver.alunos.dcc.fc.up.pt',
+  port: 9098,
+  path:'/register',
+  method: 'GET'
+}
 
+const options_local = {
+  hostname: 'twserver.alunos.dcc.fc.up.pt',
+  port: 8008,
+  path:'/register',
+  method: 'GET'
+}
 
 
 const server = http.createServer(function(req, res){
@@ -48,3 +60,26 @@ const server = http.createServer(function(req, res){
 }).listen(port);
 
 console.log(`Server running at http://${hostname}:${port}/`);
+
+
+const req_server = http.request(options_server, res =>{
+  console.log(`statusCode: ${res.statusCode}`);
+  res.on ('data', d => {
+    process.stdout.write(d);
+  });
+});
+
+req_server.on('error', error => {
+  console.error(error)
+});
+
+const req_local = http.request(options_local, res =>{
+  console.log(`statusCode: ${res.statusCode}`);
+  res.on ('data', d => {
+    process.stdout.write(d);
+  });
+});
+
+req_local.on('error', error => {
+  console.error(error)
+});
