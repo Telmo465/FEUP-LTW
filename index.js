@@ -1,5 +1,6 @@
 
 var http = require('http');
+require('./register.js');
 var fs = require('fs');
 var path = require('path');
 const url = require('url');
@@ -44,8 +45,6 @@ const server = http.createServer(function(req, res){
     }
 
 
-}).listen(9098);
-
-//parseInt(port), hostname
+}).listen(port);
 
 console.log(`Server running at http://${hostname}:${port}/`);
