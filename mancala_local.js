@@ -630,7 +630,7 @@ function registarPlayer(user, password){
 function sendRequest(obj,command){
         const xhr = new XMLHttpRequest();
         let server = "twserver.alunos.dcc.fc.up.pt"
-        xhr.open('POST','http://'+server+':'+9098+'/'+command,true);
+        xhr.open('POST','http://'+server+':'+8008+'/'+command,true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState < 4) return;
             let data=JSON.parse(xhr.responseText);
@@ -805,7 +805,7 @@ function translateBoard(sides, key){
 function openServer(){
 	if(!logged){alert("Por favor faça login primeiro!"); return;}
 	let server = "twserver.alunos.dcc.fc.up.pt"
-	eventSource = new EventSource('http://'+server+':'+'9098'+'/update?nick='+encodeURIComponent(gNickname)+'&game='+encodeURIComponent(gameHash));
+	eventSource = new EventSource('http://'+server+':'+'8008'+'/update?nick='+encodeURIComponent(gNickname)+'&game='+encodeURIComponent(gameHash));
 
 	eventSource.onmessage = function(event){
 		//tratar de dados
