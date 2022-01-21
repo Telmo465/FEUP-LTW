@@ -7,16 +7,9 @@ const url = require('url');
 const hostname = 'twserver.alunos.dcc.fc.up.pt';
 const port = 9098;
 
-const options_server = {
+const options = {
   hostname: 'twserver.alunos.dcc.fc.up.pt',
   port: 9098,
-  path:'/register',
-  method: 'GET'
-}
-
-const options_local = {
-  hostname: 'twserver.alunos.dcc.fc.up.pt',
-  port: 8008,
   path:'/register',
   method: 'GET'
 }
@@ -62,7 +55,7 @@ const server = http.createServer(function(req, res){
 console.log(`Server running at http://${hostname}:${port}/`);
 
 
-const req_server = http.request(options_server, res =>{
+const req_server = http.request(options, res =>{
   console.log(`statusCode: ${res.statusCode}`);
   res.on ('data', d => {
     process.stdout.write(d);
@@ -70,16 +63,5 @@ const req_server = http.request(options_server, res =>{
 });
 
 req_server.on('error', error => {
-  console.error(error)
-});
-
-const req_local = http.request(options_local, res =>{
-  console.log(`statusCode: ${res.statusCode}`);
-  res.on ('data', d => {
-    process.stdout.write(d);
-  });
-});
-
-req_local.on('error', error => {
   console.error(error)
 });
